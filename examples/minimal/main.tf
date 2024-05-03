@@ -14,6 +14,10 @@ module "wafv2_web_acl_global" {
   source  = "d2lqlh14iel5k2.cloudfront.net/module_primitive/wafv2_web_acl_global/aws"
   version = "~> 1.0"
 
+  providers = {
+    aws.global = aws.global
+  }
+
   name           = module.resource_names["web_acl"].minimal_random_suffix
   default_action = "allow"
 
