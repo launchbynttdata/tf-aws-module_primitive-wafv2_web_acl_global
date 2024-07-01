@@ -11,7 +11,7 @@
 // limitations under the License.
 
 module "wafv2_web_acl_global" {
-  source  = "d2lqlh14iel5k2.cloudfront.net/module_primitive/wafv2_web_acl_global/aws"
+  source  = "terraform.registry.launch.nttdata.com/module_primitive/wafv2_web_acl_global/aws"
   version = "~> 1.0"
 
   providers = {
@@ -27,7 +27,7 @@ module "wafv2_web_acl_global" {
 }
 
 module "resource_names" {
-  source  = "d2lqlh14iel5k2.cloudfront.net/module_library/resource_name/launch"
+  source  = "terraform.registry.launch.nttdata.com/module_library/resource_name/launch"
   version = "~> 1.0"
 
   for_each = var.resource_names_map

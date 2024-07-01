@@ -17,8 +17,8 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_wafv2_web_acl_global"></a> [wafv2\_web\_acl\_global](#module\_wafv2\_web\_acl\_global) | d2lqlh14iel5k2.cloudfront.net/module_primitive/wafv2_web_acl_global/aws | ~> 1.0 |
-| <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | d2lqlh14iel5k2.cloudfront.net/module_library/resource_name/launch | ~> 1.0 |
+| <a name="module_wafv2_web_acl_global"></a> [wafv2\_web\_acl\_global](#module\_wafv2\_web\_acl\_global) | terraform.registry.launch.nttdata.com/module_primitive/wafv2_web_acl_global/aws | ~> 1.0 |
+| <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | terraform.registry.launch.nttdata.com/module_library/resource_name/launch | ~> 1.0 |
 
 ## Resources
 
