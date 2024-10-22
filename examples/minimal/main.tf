@@ -11,12 +11,7 @@
 // limitations under the License.
 
 module "wafv2_web_acl_global" {
-  source  = "terraform.registry.launch.nttdata.com/module_primitive/wafv2_web_acl_global/aws"
-  version = "~> 1.0"
-
-  providers = {
-    aws.global = aws.global
-  }
+  source = "../.."
 
   name           = module.resource_names["web_acl"].minimal_random_suffix
   default_action = "allow"
@@ -28,7 +23,7 @@ module "wafv2_web_acl_global" {
 
 module "resource_names" {
   source  = "terraform.registry.launch.nttdata.com/module_library/resource_name/launch"
-  version = "~> 1.0"
+  version = "~> 2.0"
 
   for_each = var.resource_names_map
 
