@@ -5,7 +5,7 @@
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.5.0, <= 1.5.5 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | ~> 3.6 |
 
@@ -17,8 +17,8 @@ No providers.
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_wafv2_web_acl_global"></a> [wafv2\_web\_acl\_global](#module\_wafv2\_web\_acl\_global) | terraform.registry.launch.nttdata.com/module_primitive/wafv2_web_acl_global/aws | ~> 1.0 |
-| <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | terraform.registry.launch.nttdata.com/module_library/resource_name/launch | ~> 1.0 |
+| <a name="module_wafv2_web_acl_global"></a> [wafv2\_web\_acl\_global](#module\_wafv2\_web\_acl\_global) | ../.. | n/a |
+| <a name="module_resource_names"></a> [resource\_names](#module\_resource\_names) | terraform.registry.launch.nttdata.com/module_library/resource_name/launch | ~> 2.0 |
 
 ## Resources
 
