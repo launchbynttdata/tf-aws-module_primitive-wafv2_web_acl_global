@@ -103,7 +103,7 @@ If `make check` target is successful, developer is good to commit the code to pr
 - runs `conftests`. `conftests` make sure `policy` checks are successful.
 - runs `terratest`. This is integration test suit.
 - runs `opa` tests
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -116,7 +116,7 @@ If `make check` target is successful, developer is good to commit the code to pr
 
 | Name | Version |
 |------|---------|
-| <a name="provider_aws.global"></a> [aws.global](#provider\_aws.global) | 5.72.1 |
+| <a name="provider_aws.global"></a> [aws.global](#provider\_aws.global) | 5.100.0 |
 
 ## Modules
 
@@ -149,4 +149,4 @@ No modules.
 | <a name="output_wafv2_web_acl_scope"></a> [wafv2\_web\_acl\_scope](#output\_wafv2\_web\_acl\_scope) | The Scope of the WAF WebACL. |
 | <a name="output_wafv2_web_acl_application_integration_url"></a> [wafv2\_web\_acl\_application\_integration\_url](#output\_wafv2\_web\_acl\_application\_integration\_url) | The URL to use in SDK integrations with managed rule groups. |
 | <a name="output_wafv2_web_acl_capacity"></a> [wafv2\_web\_acl\_capacity](#output\_wafv2\_web\_acl\_capacity) | Web ACL capacity units (WCUs) currently being used by this web ACL. |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->

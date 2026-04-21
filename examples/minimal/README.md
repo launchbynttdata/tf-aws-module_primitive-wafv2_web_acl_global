@@ -1,6 +1,6 @@
 # minimal
 
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -46,4 +46,4 @@ No resources.
 | <a name="output_wafv2_web_acl_name"></a> [wafv2\_web\_acl\_name](#output\_wafv2\_web\_acl\_name) | The Name of the WAF WebACL. |
 | <a name="output_wafv2_web_acl_scope"></a> [wafv2\_web\_acl\_scope](#output\_wafv2\_web\_acl\_scope) | The Scope of the WAF WebACL. |
 | <a name="output_wafv2_web_acl_capacity"></a> [wafv2\_web\_acl\_capacity](#output\_wafv2\_web\_acl\_capacity) | Web ACL capacity units (WCUs) currently being used by this web ACL. |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- END_TF_DOCS -->
