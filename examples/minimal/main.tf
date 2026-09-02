@@ -13,6 +13,10 @@
 module "wafv2_web_acl_global" {
   source = "../.."
 
+  providers = {
+    aws.global = aws.global
+  }
+
   name           = module.resource_names["web_acl"].minimal_random_suffix
   default_action = "allow"
 

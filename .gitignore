@@ -53,6 +53,7 @@ terraform.rc
 # Files from common modules
 azure_env.sh
 .releaserc.json
+provider.tf
 
 # Pre-commit hook
 
