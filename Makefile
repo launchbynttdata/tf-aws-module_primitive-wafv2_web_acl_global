@@ -50,6 +50,12 @@ tfmodule/create_example_providers:
 	@rm -f provider.tf
 	@$(foreach example,$(ALL_EXAMPLES),$(call create_example_providers,$(example)))
 
+.PHONY: tfmodule/lint
+tfmodule/lint: tfmodule/init
+	@$(call check_terraform_fmt)
+	@$(foreach module,$(ALL_EXAMPLES),$(call tflint_terraform_module,$(module)))
+	@$(foreach module,$(ALL_EXAMPLES),$(call validate_terraform_module,$(module)))
+
 MODULE_DIR ?= ${COMPONENTS_DIR}/module
 
 PYTHON3_INSTALLED = $(shell which python3 > /dev/null 2>&1; echo $$?)
