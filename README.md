@@ -103,7 +103,7 @@ If `make check` target is successful, developer is good to commit the code to pr
 - runs `conftests`. `conftests` make sure `policy` checks are successful.
 - runs `terratest`. This is integration test suit.
 - runs `opa` tests
-<!-- BEGINNING OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+<!-- BEGIN_TF_DOCS -->
 ## Requirements
 
 | Name | Version |
@@ -111,12 +111,6 @@ If `make check` target is successful, developer is good to commit the code to pr
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
 | <a name="requirement_aws"></a> [aws](#requirement\_aws) | ~> 5.0 |
 | <a name="requirement_random"></a> [random](#requirement\_random) | ~> 3.6 |
-
-## Providers
-
-| Name | Version |
-|------|---------|
-| <a name="provider_aws.global"></a> [aws.global](#provider\_aws.global) | 5.72.1 |
 
 ## Modules
 
@@ -132,21 +126,21 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_name"></a> [name](#input\_name) | Friendly name of the WebACL. Changing this forces creation of a new resource. | `string` | n/a | yes |
 | <a name="input_cloudwatch_metrics_enabled"></a> [cloudwatch\_metrics\_enabled](#input\_cloudwatch\_metrics\_enabled) | Whether the WAF sends metrics to CloudWatch. For the list of available metrics, see https://docs.aws.amazon.com/waf/latest/developerguide/waf-metrics.html. | `bool` | `false` | no |
-| <a name="input_metric_name"></a> [metric\_name](#input\_metric\_name) | The friendly name of the CloudWatch metric, required if `cloudwatch_metrics_enabled` is True. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`. | `string` | `null` | no |
-| <a name="input_sampled_requests_enabled"></a> [sampled\_requests\_enabled](#input\_sampled\_requests\_enabled) | Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console. | `bool` | `false` | no |
 | <a name="input_default_action"></a> [default\_action](#input\_default\_action) | Action to perform if none of the rules contained in the WebACL match. One of `allow`, `block`. | `string` | n/a | yes |
+| <a name="input_metric_name"></a> [metric\_name](#input\_metric\_name) | The friendly name of the CloudWatch metric, required if `cloudwatch_metrics_enabled` is True. The name can contain only alphanumeric characters (A-Z, a-z, 0-9) hyphen(-) and underscore (\_), with length from one to 128 characters. It can't contain whitespace or metric names reserved for AWS WAF, for example `All` and `Default_Action`. | `string` | `null` | no |
+| <a name="input_name"></a> [name](#input\_name) | Friendly name of the WebACL. Changing this forces creation of a new resource. | `string` | n/a | yes |
 | <a name="input_rules"></a> [rules](#input\_rules) | n/a | <pre>list(object(<br>    {<br>      name            = string<br>      priority        = number<br>      action          = optional(string, null)<br>      override_action = optional(string, null)<br>      statement = object({<br>        managed_rule_group_statement = optional(object({<br>          name        = string<br>          vendor_name = optional(string, "AWS")<br>        }), null)<br>      })<br>      metrics_enabled          = optional(bool, true)<br>      metric_name              = optional(string, null)<br>      sampled_requests_enabled = optional(bool, false)<br>    }<br>  ))</pre> | <pre>[<br>  {<br>    "name": "AWSManagedRulesCommonRuleSet",<br>    "override_action": "none",<br>    "priority": 0,<br>    "statement": {<br>      "managed_rule_group_statement": {<br>        "name": "AWSManagedRulesCommonRuleSet",<br>        "vendor_name": "AWS"<br>      }<br>    }<br>  },<br>  {<br>    "name": "AWSManagedRulesKnownBadInputsRuleSet",<br>    "override_action": "none",<br>    "priority": 10,<br>    "statement": {<br>      "managed_rule_group_statement": {<br>        "name": "AWSManagedRulesKnownBadInputsRuleSet",<br>        "vendor_name": "AWS"<br>      }<br>    }<br>  },<br>  {<br>    "name": "AWSManagedRulesAmazonIpReputationList",<br>    "override_action": "none",<br>    "priority": 20,<br>    "statement": {<br>      "managed_rule_group_statement": {<br>        "name": "AWSManagedRulesAmazonIpReputationList",<br>        "vendor_name": "AWS"<br>      }<br>    }<br>  },<br>  {<br>    "name": "AWSManagedRulesAnonymousIpList",<br>    "override_action": "none",<br>    "priority": 30,<br>    "statement": {<br>      "managed_rule_group_statement": {<br>        "name": "AWSManagedRulesAnonymousIpList",<br>        "vendor_name": "AWS"<br>      }<br>    }<br>  },<br>  {<br>    "name": "AWSManagedRulesSQLiRuleSet",<br>    "override_action": "none",<br>    "priority": 40,<br>    "statement": {<br>      "managed_rule_group_statement": {<br>        "name": "AWSManagedRulesSQLiRuleSet",<br>        "vendor_name": "AWS"<br>      }<br>    }<br>  },<br>  {<br>    "name": "AWSManagedRulesLinuxRuleSet",<br>    "override_action": "none",<br>    "priority": 50,<br>    "statement": {<br>      "managed_rule_group_statement": {<br>        "name": "AWSManagedRulesLinuxRuleSet",<br>        "vendor_name": "AWS"<br>      }<br>    }<br>  },<br>  {<br>    "name": "AWSManagedRulesUnixRuleSet",<br>    "override_action": "none",<br>    "priority": 60,<br>    "statement": {<br>      "managed_rule_group_statement": {<br>        "name": "AWSManagedRulesUnixRuleSet",<br>        "vendor_name": "AWS"<br>      }<br>    }<br>  }<br>]</pre> | no |
+| <a name="input_sampled_requests_enabled"></a> [sampled\_requests\_enabled](#input\_sampled\_requests\_enabled) | Whether AWS WAF should store a sampling of the web requests that match the rules. You can view the sampled requests through the AWS WAF console. | `bool` | `false` | no |
 | <a name="input_tags"></a> [tags](#input\_tags) | Map of key-value pairs to associate with the resource. | `map(string)` | `{}` | no |
 
 ## Outputs
 
 | Name | Description |
 |------|-------------|
-| <a name="output_wafv2_web_acl_id"></a> [wafv2\_web\_acl\_id](#output\_wafv2\_web\_acl\_id) | The ID of the WAF WebACL. |
-| <a name="output_wafv2_web_acl_arn"></a> [wafv2\_web\_acl\_arn](#output\_wafv2\_web\_acl\_arn) | The ARN of the WAF WebACL. |
-| <a name="output_wafv2_web_acl_scope"></a> [wafv2\_web\_acl\_scope](#output\_wafv2\_web\_acl\_scope) | The Scope of the WAF WebACL. |
 | <a name="output_wafv2_web_acl_application_integration_url"></a> [wafv2\_web\_acl\_application\_integration\_url](#output\_wafv2\_web\_acl\_application\_integration\_url) | The URL to use in SDK integrations with managed rule groups. |
+| <a name="output_wafv2_web_acl_arn"></a> [wafv2\_web\_acl\_arn](#output\_wafv2\_web\_acl\_arn) | The ARN of the WAF WebACL. |
 | <a name="output_wafv2_web_acl_capacity"></a> [wafv2\_web\_acl\_capacity](#output\_wafv2\_web\_acl\_capacity) | Web ACL capacity units (WCUs) currently being used by this web ACL. |
-<!-- END OF PRE-COMMIT-TERRAFORM DOCS HOOK -->
+| <a name="output_wafv2_web_acl_id"></a> [wafv2\_web\_acl\_id](#output\_wafv2\_web\_acl\_id) | The ID of the WAF WebACL. |
+| <a name="output_wafv2_web_acl_scope"></a> [wafv2\_web\_acl\_scope](#output\_wafv2\_web\_acl\_scope) | The Scope of the WAF WebACL. |
+<!-- END_TF_DOCS -->
