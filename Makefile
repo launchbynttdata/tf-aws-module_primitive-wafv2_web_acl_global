@@ -44,6 +44,12 @@ JOB_EMAIL ?= job@job.job
 COMPONENTS_DIR = components
 -include $(COMPONENTS_DIR)/Makefile
 
+# Child module: aws.global is a configuration alias; provider blocks live in examples only.
+.PHONY: tfmodule/create_example_providers
+tfmodule/create_example_providers:
+	@rm -f provider.tf
+	@$(foreach example,$(ALL_EXAMPLES),$(call create_example_providers,$(example)))
+
 MODULE_DIR ?= ${COMPONENTS_DIR}/module
 
 PYTHON3_INSTALLED = $(shell which python3 > /dev/null 2>&1; echo $$?)
