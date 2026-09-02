@@ -19,10 +19,10 @@ func TestComposableComplete(t *testing.T, ctx types.TestContext) {
 	awsClient := GetAWSWAFV2Client(t)
 
 	t.Run("TestWAFV2ACLExists", func(t *testing.T) {
-		awsWAFV2WebACLId := terraform.Output(t, ctx.TerratestTerraformOptions(), "wafv2_web_acl_id")
-		awsWAFV2WebACLName := terraform.Output(t, ctx.TerratestTerraformOptions(), "wafv2_web_acl_name")
-		awsWAFV2WebACLScope := terraform.Output(t, ctx.TerratestTerraformOptions(), "wafv2_web_acl_scope")
-		awsWAFV2WebACLCapacity := terraform.Output(t, ctx.TerratestTerraformOptions(), "wafv2_web_acl_capacity")
+		awsWAFV2WebACLId := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "wafv2_web_acl_id")
+		awsWAFV2WebACLName := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "wafv2_web_acl_name")
+		awsWAFV2WebACLScope := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "wafv2_web_acl_scope")
+		awsWAFV2WebACLCapacity := terraform.OutputContext(t, context.Background(), ctx.TerratestTerraformOptions(), "wafv2_web_acl_capacity")
 
 		assert.Equal(t, waftypes.Scope(awsWAFV2WebACLScope), waftypes.ScopeCloudfront, "This module only supports WAF ACLs scoped to CLOUDFRONT!")
 
