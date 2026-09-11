@@ -287,6 +287,13 @@ while [[ ${i} -lt ${#check_dirs[@]} ]]; do
   d="${check_dirs[$i]}"
   v="${check_floors[$i]}"
   if [[ "${d}" == "." ]]; then
+    # Child modules with configuration_aliases cannot be validated as a root
+    # (hashicorp/terraform#28490). Examples still load this module at the floor.
+    if grep -qE 'configuration_aliases' "${VERSIONS_FILE}" 2>/dev/null; then
+      echo "    skip: the root module (configuration_aliases; validate via examples)"
+      i=$(( i + 1 ))
+      continue
+    fi
     check_dir "${d}" "${v}" "the root module"
   else
     check_dir "${d}" "${v}" "${d}"
