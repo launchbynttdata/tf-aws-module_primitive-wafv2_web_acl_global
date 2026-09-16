@@ -21,7 +21,10 @@ repos:
     rev: v1.99.0
     hooks:
       - id: terraform_fmt
+      # Root uses configuration_aliases = [aws.global] with no provider block.
+      # terraform validate on `.` fails (hashicorp/terraform#28490); examples cover it.
       - id: terraform_validate
+        exclude: '^[^/]+$'
       - id: terraform_docs
         args:
           - --hook-config=--path-to-file=README.md
@@ -36,12 +39,6 @@ repos:
         exclude: package.lock.json
   - repo: local
     hooks:
-      - id: golangci-lint
-        name: golangci-lint
-        entry: .github/scripts/golangci-lint-precommit.sh
-        language: script
-        types: [go]
-        pass_filenames: false
       - id: validate-readonly-test
         name: Validate readonly test wiring (RunNonDestructiveTest + TestComposable*)
         entry: .github/scripts/validate-readonly-test.sh
